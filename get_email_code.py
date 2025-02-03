@@ -12,6 +12,10 @@ class EmailVerificationHandler:
         self.imap = Config().get_imap()
         self.username = Config().get_temp_mail()
         self.session = requests.Session()
+        self.session.proxies = {
+            'http': Config().get_proxy(),
+            "https": Config().get_proxy()
+        }
         self.emailExtension = "@mailto.plus"
 
     def get_verification_code(self):
