@@ -26,7 +26,6 @@ class Config:
         self.imap = False
         self.temp_mail = os.getenv("TEMP_MAIL", "").strip().split("@")[0]
         self.domain = os.getenv("DOMAIN", "").strip()
-        self.proxy = os.getenv("BROWSER_PROXY", "").strip()
 
         # 如果临时邮箱为null则加载IMAP
         if self.temp_mail == "null":
@@ -57,8 +56,6 @@ class Config:
     def get_domain(self):
         return self.domain
 
-    def get_proxy(self):
-        return self.proxy
     def check_config(self):
         """检查配置项是否有效
 
